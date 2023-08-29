@@ -1,8 +1,9 @@
 {
-  "name": "react-native-simple-navigation",
+  "name": "react-native-navigation-simple",
   "version": "1.0.0",
   "description": "Simple zero-dependency Javascript-only navigation for React Native",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
