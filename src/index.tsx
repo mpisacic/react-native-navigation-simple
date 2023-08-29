@@ -35,7 +35,7 @@ type NavigationProps<U extends Record<string, any>> = {
   children:
     | React.ReactElement<NavigationRouteProps<U>>
     | React.ReactElement<NavigationRouteProps<U>>[];
-  onHardwareBackPress(navigation: Navigation<U>): void;
+  onHardwareBackPress?(navigation: Navigation<U>): void;
 };
 
 type NavigateArgs<
@@ -116,7 +116,9 @@ export function createNavigation<T extends Record<string, any>>() {
 
     useEffect(() => {
       BackHandler.addEventListener("hardwareBackPress", () => {
-        onHardwareBackPressRef.current({ navigate });
+        if (onHardwareBackPressRef.current) {
+          onHardwareBackPressRef.current({ navigate });
+        }
         return true;
       });
     }, []);
